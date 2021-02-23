@@ -4,10 +4,10 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-require 'Suit.php';
-require 'Card.php';
-require 'Deck.php';
-require 'Player.php';
+//require_once 'Suit.php';
+//require_once 'Card.php';
+//require_once 'Deck.php';
+//require_once 'Player.php';
 
 class Blackjack
 {
@@ -17,10 +17,12 @@ class Blackjack
     private $deck;
 
     function __construct(){
-        $this->player=new Player($this->deck);
+        $deck= new Deck();
+        $deck->shuffle();
+        $this->deck=$deck;
+
+        $this->player= new Player($this->deck);
         $this->dealer=new Player($this->deck);
-        $this->deck= new Deck();
-        $this->deck->shuffle();
     }
 
     /**
