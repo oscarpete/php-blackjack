@@ -4,10 +4,6 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-//require_once 'Suit.php';
-//require_once 'Card.php';
-//require_once 'Deck.php';
-//require_once 'Player.php';
 
 class Blackjack
 {
@@ -22,7 +18,7 @@ class Blackjack
         $this->deck=$deck;
 
         $this->player= new Player($this->deck);
-        $this->dealer=new Player($this->deck);
+        $this->dealer=new Dealer($this->deck);
     }
 
     /**
@@ -36,7 +32,7 @@ class Blackjack
     /**
      * @return mixed
      */
-    public function getDealer() : Player
+    public function getDealer() : Dealer
     {
         return $this->dealer;
     }

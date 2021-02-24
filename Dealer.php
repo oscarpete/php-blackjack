@@ -7,19 +7,9 @@ error_reporting(E_ALL);
 
 class Dealer extends Player
 {
-
-
-
-    function hit(Deck $deck){
-    do{
-        parent::hit($deck);
+    public function hit(Deck $deck)
+    {
+        while ($this->getScore() < 15)
+            parent::hit($deck);
     }
-    while($this->getScore() <=15);
-
-
-
-    }
-
-
-
 }
